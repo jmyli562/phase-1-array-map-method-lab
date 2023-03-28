@@ -12,5 +12,24 @@ const tutorials = [
 ];
 
 const titleCased = () => {
-  return tutorials
+  let finalResult = [];
+        let currTitle;
+        let removedSpaces = tutorials.map(function(element){
+            return element.split(" ");
+        })
+
+        for(let i = 0; i < removedSpaces.length; i++){
+            for(let k = 0; k < removedSpaces[i].length; k++){
+                removedSpaces[i][k] = removedSpaces[i][k][0].toUpperCase() + removedSpaces[i][k].slice(1,removedSpaces[i][k].length);
+            }
+        }
+
+        for(let j = 0; j < removedSpaces.length; j++){
+            currTitle = removedSpaces[j];
+            finalResult.push(currTitle.join(" "));
+        }
+
+        return finalResult;
 }
+
+console.log(titleCased())
